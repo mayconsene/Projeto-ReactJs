@@ -36,7 +36,7 @@ export const Dashboard:React.FC = () => {
 
         const config = {
             headers: { 
-                Authorization: `Bearer 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` 
+                Authorization: `Bearer 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` 
             }
         };
 
