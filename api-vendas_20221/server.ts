@@ -6,9 +6,13 @@ import router from './routes'
 import './typeorm' // chama conexão com o banco
 import AppError from './errors/AppError'
 
+let cors = require(cors())
+
 
 let server = express()
 server.use(express.json())
+
+server.use(cors)
 server.use(router)
 server.use(errors()) // instancia um objeto da classe errors e pede para o servidor utilizar
 server.use(
