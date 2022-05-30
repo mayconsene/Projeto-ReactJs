@@ -18,7 +18,7 @@ class ShowUserService{
 
         }
         else{
-            return "Usuário/Senha inválido"
+            return "Usuário/Senha inválidos"
 
         }
     }
