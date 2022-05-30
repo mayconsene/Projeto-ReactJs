@@ -23,3 +23,5 @@ class ShowUserService{
         }
     }
 }
+
+export default ShowUserService
