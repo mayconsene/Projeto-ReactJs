@@ -4,16 +4,17 @@ import {Dashboard} from '../pages/Dashboard/index'
 import {Repository} from '../pages/Repository/index'
 import {Sobre} from '../pages/Sobre/index'
 import {Login} from '../pages/Login/index'
-import {Filme} from '../pages/Filme/index'
+import { Filme } from '../pages/Filme'
 
-export const Rotas: React.FC = () => {
+export const Routes: React.FC = () => {
     return (
         <Switch>
             <Route component={Login} path="/" exact/>
-            <Route component={Dashboard} path="/dashboard"/>
-            <Route component={Repository} path="/repositories/:repository+" />
+            <Route component={Dashboard} path="/dashboard" exact/>
             <Route component={Sobre} path="/sobre" />
+            <Route component={Repository} path="/repositories/:repository+" />
             <Route component={Filme} path="/filme" />
         </Switch>
     )
-}
+} 
+

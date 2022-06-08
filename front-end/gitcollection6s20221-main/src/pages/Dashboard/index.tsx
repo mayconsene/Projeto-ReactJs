@@ -6,7 +6,6 @@ import {api} from '../../services/api'
 
 import {Link} from 'react-router-dom'
 
-
 export const Dashboard:React.FC = () => {
     // vamos criar interface (tipo de dado) contendo campos de 
     // interesse do repositório
@@ -81,4 +80,3 @@ export const Dashboard:React.FC = () => {
         </>
     )
 }
-

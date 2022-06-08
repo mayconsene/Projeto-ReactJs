@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: `https://api.github.com`
+    baseURL: 'https://api.github.com'
 })
 
 export const apiLocal = axios.create({
@@ -9,5 +9,5 @@ export const apiLocal = axios.create({
 })
 
 export const apiFilme = axios.create({
-    baseURL: `https://www.omdbapi.com/`
+    baseURL: `https://www.omdbapi.com`
 })
