@@ -2,7 +2,8 @@ import React from 'react'
 import logo from '../../assets/logo.svg'
 import {Title, Formulario, Repo} from './styles'
 
-import {api} from '../../services/api'
+import {apiFilme} from '../../services/api'
+
 
 import {Link} from 'react-router-dom'
 
@@ -13,10 +14,7 @@ export const Filme:React.FC = () => {
     interface FilmeRepository {
         Title: string;
         Genre: string;
-        Poster: {
-            login: string;
-            avatar_url: string;
-        }
+        Poster: string;
     }
     // criar um estado que representa um novo repositório e inicia com vazio
     const [novoRepo, setNovoRepo] = React.useState('')
@@ -35,14 +33,14 @@ export const Filme:React.FC = () => {
         event.preventDefault()
         // tenta chamar a api
 
-        const config = {
+        /*const config = {
             headers: { 
                 Authorization: `Bearer 3d07a49e&` 
             }
-        };
+        };*/
 
         try {
-            const resposta = await api.get<FilmeRepository>(`repos/${novoRepo}`)
+            const resposta = await apiFilme.get<FilmeRepository>(`?apikey=3d07a49e&t=${novoRepo}`)
             const aux = resposta.data // acessa os dados do resultado
             // adiciona o resultado no vetor repos
             setRepos([...repos, aux])
@@ -56,7 +54,7 @@ export const Filme:React.FC = () => {
             <img src={logo} alt="Filme collection"/>
             <Title> Catálogo de Filmes do OMDb </Title>
             <Formulario onSubmit={handleAddRepo}>
-                <input placeholder="https://www.omdbapi.com/?apikey=[]t=[]" onChange={handleInputChange}/>
+                <input placeholder="Informe o título do filme" onChange={handleInputChange}/>
                 <button type="submit"> Buscar </button> 
             </Formulario>
 
@@ -66,7 +64,7 @@ export const Filme:React.FC = () => {
                     <Link 
                         to={`/repositories/${item.Title}`}
                         key={item.Genre + indice}    >
-                        <img src={item.Title} alt={item.Title}/>
+                        <img src={item.Poster} alt={item.Title}/>
                         <div>
                             <strong> {item.Title} </strong>
                             <p> {item.Genre} </p> 
