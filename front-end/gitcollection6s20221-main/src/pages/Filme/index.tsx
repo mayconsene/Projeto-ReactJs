@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom'
 export const Filme:React.FC = () => {
     // vamos criar interface (tipo de dado) contendo campos de 
     // interesse do repositório
-    interface FilmeRepository {
+    interface IFilmeRepository {
         Title: string;
         Genre: string;
         Poster: string;
@@ -20,7 +20,7 @@ export const Filme:React.FC = () => {
     const [novoRepo, setNovoRepo] = React.useState('')
     // criar um estado que representa o vetor de repositórios buscados
     // inicia com vazio - tipo do vetor é de IFilmeRepository
-    const [repos, setRepos] = React.useState<FilmeRepository[]>([])
+    const [repos, setRepos] = React.useState<IFilmeRepository[]>([])
     
     // o que for digitado no input vai para a variávei novoRepo
     function handleInputChange(event: React.ChangeEvent<HTMLInputElement>): void {
@@ -40,7 +40,7 @@ export const Filme:React.FC = () => {
         };*/
 
         try {
-            const resposta = await apiFilme.get<FilmeRepository>(`?apikey=3d07a49e&t=${novoRepo}`)
+            const resposta = await apiFilme.get<IFilmeRepository>(`?apikey=3d07a49e&t=${novoRepo}`)
             const aux = resposta.data // acessa os dados do resultado
             // adiciona o resultado no vetor repos
             setRepos([...repos, aux])
@@ -52,7 +52,7 @@ export const Filme:React.FC = () => {
     return (
         <> 
             <img src={logo} alt="Filme collection"/>
-            <Title> Catálogo de Filmes do OMDb </Title>
+            <Title> Catálogo de Filmes </Title>
             <Formulario onSubmit={handleAddRepo}>
                 <input placeholder="Informe o título do filme" onChange={handleInputChange}/>
                 <button type="submit"> Buscar </button> 
@@ -62,7 +62,7 @@ export const Filme:React.FC = () => {
                 { // percorrer o vetor repos
                 repos.map((item, indice) => (
                     <Link 
-                        to={`/repositories/${item.Title}`}
+                        to={`/filmes/${item.Title}`}
                         key={item.Genre + indice}    >
                         <img src={item.Poster} alt={item.Title}/>
                         <div>
