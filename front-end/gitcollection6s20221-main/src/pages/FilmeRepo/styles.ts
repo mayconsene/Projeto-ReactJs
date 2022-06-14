@@ -49,10 +49,11 @@ export const RepoInfo = styled.section`
     li {
         & + li {
             margin-left: 80px;
+            list-style: none;
         }
         strong {
             display: block;
-            font-size: 36px;
+            font-size: 18px;
             color: #3d3d4d;
         }
         span {

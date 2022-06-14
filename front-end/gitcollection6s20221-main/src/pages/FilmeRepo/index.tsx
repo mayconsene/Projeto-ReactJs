@@ -1,7 +1,7 @@
 import React from 'react'
 import {apiFilme} from '../../services/api'
 import {useRouteMatch} from 'react-router-dom'
-import logo from '../../assets/logo.svg'
+import filme from '../../assets/filme.svg'
 import {Header, RepoInfo} from './styles'
 import {FiChevronLeft, FiChevronRight} from 'react-icons/fi'
 import {Link} from 'react-router-dom'
@@ -57,7 +57,7 @@ export const FilmeRepo:React.FC = () => {
     return (
         <>
             <Header>
-                <img src={logo} alt="GitCollection"/>
+                <img src={filme} alt="FilmeCollection"/>
                 <Link to="/"> 
                     <FiChevronLeft /> Voltar
                 </Link>
@@ -72,6 +72,8 @@ export const FilmeRepo:React.FC = () => {
                             <p> {reposfilme.Year} </p>
                         </div>
                     </header>
+
+                    <div>
                     <ul>
                         <li> 
                             <strong> {reposfilme.Rated} </strong> <span> Rated </span>
@@ -91,6 +93,12 @@ export const FilmeRepo:React.FC = () => {
                         <li>
                             <strong> {reposfilme.Writer} </strong> <span> Writer </span>
                         </li>
+                        </ul>
+
+                    </div>
+
+                    <div>
+                    <ul>
                         <li>
                             <strong> {reposfilme.Actors} </strong> <span> Actors </span>
                         </li>
@@ -112,6 +120,12 @@ export const FilmeRepo:React.FC = () => {
                         <li>
                             <strong> {reposfilme.Poster} </strong> <span> Poster </span>
                         </li>
+                        </ul>
+
+                    </div>
+
+                        <div>
+                        <ul>
                         <li>
                             <strong>  </strong> <span> Ratings </span>
                         </li>
@@ -143,6 +157,9 @@ export const FilmeRepo:React.FC = () => {
                             <strong> {reposfilme.Response} </strong> <span> Response </span>
                         </li>
                     </ul>
+                        </div>
+                       
+                       
                 </RepoInfo>
             )}
 

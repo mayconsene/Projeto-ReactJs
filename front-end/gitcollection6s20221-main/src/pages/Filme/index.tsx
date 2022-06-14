@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../assets/logo.svg'
+import filme from '../../assets/filme.svg'
 import {Title, Formulario, Repo} from './styles'
 
 import {apiFilme} from '../../services/api'
@@ -51,7 +51,7 @@ export const Filme:React.FC = () => {
     }
     return (
         <> 
-            <img src={logo} alt="Filme collection"/>
+            <img src={filme} alt="Filme collection"/>
             <Title> Catálogo de Filmes </Title>
             <Formulario onSubmit={handleAddRepo}>
                 <input placeholder="Informe o título do filme" onChange={handleInputChange}/>
